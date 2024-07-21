@@ -4,6 +4,7 @@ navbar.innerHTML = `
         <a href="#semestre1" id="semestre1Btn">Bloc scientifique</a>
         <a href="#semestre2" id="semestre2Btn">Bloc transversal</a>
         <a href="https://edt.univ-lyon1.fr/">Emploi du temps</a>
+        <a href="https://tomuss.univ-lyon1.fr/S/2024/Automne/logout">Se déconnecter</a>
     </div>
 `;
 
@@ -144,6 +145,9 @@ style.textContent = `
     }
     .CellRank, .CellAvg {
         color : white !important;
+    }
+    .Semesters {
+        padding: 10px !important;    
     }
 `;
 document.head.append(style);
