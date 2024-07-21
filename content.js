@@ -8,6 +8,19 @@ navbar.innerHTML = `
     </div>
 `;
 
+const dedi = document.createElement('div');
+dedi.innerHTML = `
+    Made with ❤️ by @<a href="https://github.com/lgrndev">lgrndev</a>
+`
+dedi.style.color = "orange";
+dedi.style.position = "absolute";
+dedi.style.top = '10px';
+dedi.style.left = '10px';
+
+document.body.appendChild(dedi);
+
+
+
 const TopLine = document.querySelector('hr');
 
 // Vérifie si l'élément TopLine existe pour éviter les erreurs
