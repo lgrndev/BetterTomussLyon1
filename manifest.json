@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Better Tomuss",
+    "version": "1.0",
+    "description": "Better design for Tomuss (Lyon1)",
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "logo.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://tomuss.univ-lyon1.fr/S/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  }
+  
