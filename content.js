@@ -1,3 +1,45 @@
+const navbar = document.createElement('div');
+navbar.innerHTML = `
+    <div class="navbar">
+        <a href="#semestre1" id="semestre1Btn">Bloc scientifique</a>
+        <a href="#semestre2" id="semestre2Btn">Bloc transversal</a>
+        <a href="https://edt.univ-lyon1.fr/">Emploi du temps</a>
+    </div>
+`;
+
+const TopLine = document.querySelector('hr');
+
+// Vérifie si l'élément TopLine existe pour éviter les erreurs
+if (TopLine) {
+    // Utilise insertAdjacentElement pour insérer la navbar après TopLine
+    TopLine.insertAdjacentElement('afterend', navbar);
+} else {
+    // Si TopLine n'existe pas, insère la navbar au début du body
+    document.body.insertBefore(navbar, document.body.firstChild);
+}
+
+// Fonction pour masquer tous les éléments sauf 1LPC02BA
+function showOnly1LPC02BA() {
+    document.querySelector(`div[id$="BA/undefined"]`).style.display = 'none';
+    document.querySelector(`div[id$="BB/undefined"]`).style.display = 'contents';
+}
+
+function showOnly1LPC02BB() {
+    document.querySelector(`div[id$="BB/undefined"]`).style.display = 'none';
+    document.querySelector(`div[id$="BA/undefined"]`).style.display = 'contents';
+}
+
+// Ajoutez des écouteurs d'événements pour les boutons de la navbar
+document.getElementById('semestre1Btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    showOnly1LPC02BB();
+});
+
+document.getElementById('semestre2Btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    showOnly1LPC02BA();
+});
+
 
 // content.js
 console.log("Better Email is running");
@@ -29,7 +71,7 @@ style.textContent = `
     .TopLine {
         display : flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important;
+        justify-content: center !important;
         padding-top: 20px !important;
         align-items: center !important;
         font-family: 'VT323', monospace;
@@ -76,6 +118,33 @@ style.textContent = `
         background-color: #27272a !important;
         color: white !important;
     }
+    .navbar {
+        background-color: #333;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-family: 'VT323', monospace;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 20px;
+    }
+    .navbar a:hover {
+        background-color: hsl( 0 , 0% , 30% );
+        color: black;
+        text-decoration: none;
+    }
+    .displaygrey {
+    }
+    .CellRank, .CellAvg {
+        color : white !important;
+    }
 `;
 document.head.append(style);
 
@@ -98,22 +167,8 @@ function updateCellBoxTextColor() {
             cellBox.style.border = '1px solid white'; // Ajoute une bordure blanche
         }
 
-        // Récupérer le contenu de CellRank associé à la cellule
-        const cellRank = document.querySelectorAll('.CellRank');
-        cellRank.forEach(cellRank => {
-            cellRank.classList.remove('hidden');
-            cellRank.style.color = 'orange';
-            cellRank.style.backgroundColor = '#27272a';
-            console.log(cellRank);
-        });
-
-
-            
-
-
     });
 }
-
 
 // Exécutez immédiatement pour supprimer les éléments existants et la div spécifique si elle existe
 removeElementsAndUpdateCellBox();
@@ -129,31 +184,7 @@ const config = { childList: true, subtree: true };
 // Commencez à observer le document
 observer.observe(document.body, config);
 
-
-
-
-// Ajoutez ce code à la fin de votre fichier content.js
-
-// Créez un nouvel élément pour le texte personnalisé
-const customTextElement = document.createElement('a');
-customTextElement.textContent = 'Emploi du temps'; // Remplacez par votre texte
-customTextElement.style.position = 'fixed';
-customTextElement.style.top = '0';
-customTextElement.style.left = '50%';
-customTextElement.style.transform = 'translateX(-50%)'; // Décalez l'élément de 50% de sa propre largeur vers la gauche
-customTextElement.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Fond semi-transparent noir
-customTextElement.style.fontWeight = 'bold';
-customTextElement.style.color = 'white'; // Texte blanc
-customTextElement.style.fontFamily = 'Arial, sans-serif';
-customTextElement.style.padding = '10px';
-customTextElement.href = 'https://edt.univ-lyon1.fr/'; // Lien vers votre page
-
-// Ajoutez l'élément au corps du document
-document.body.appendChild(customTextElement);
-
 document.title = "BetterTomuss";
-
-
 
 const fontLink = document.createElement('link');
 fontLink.rel = 'stylesheet';

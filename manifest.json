@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Better Tomuss",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Better design for Tomuss (Lyon1)",
     "permissions": [
       "activeTab",
