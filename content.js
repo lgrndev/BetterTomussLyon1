@@ -1,62 +1,108 @@
+console.log("Better Tomuss is running");
+document.title = "BetterTomuss";
+
+
+
+
+
+
+// Barre de navigation
+
 const navbar = document.createElement('div');
 navbar.innerHTML = `
     <div class="navbar">
-        <a href="#semestre1" id="semestre1Btn">Bloc scientifique</a>
-        <a href="#semestre2" id="semestre2Btn">Bloc transversal</a>
+        <a href="#blocscience" id="blocscienceBtn">Bloc scientifique</a>
+        <a href="#bloctransversal" id="bloctransversalBtn">Bloc transversal</a>
         <a href="https://edt.univ-lyon1.fr/">Emploi du temps</a>
         <a href="https://tomuss.univ-lyon1.fr/S/2024/Automne/logout">Se déconnecter</a>
     </div>
 `;
 
+
+
+
+
+
+
+
+
+// Dedicace
+
 const dedi = document.createElement('div');
 dedi.innerHTML = `
     Made with ❤️ by @<a href="https://github.com/lgrndev">lgrndev</a>
-`
+`;
 dedi.style.color = "orange";
 dedi.style.position = "absolute";
 dedi.style.top = '10px';
 dedi.style.left = '10px';
-
 document.body.appendChild(dedi);
 
 
 
-const TopLine = document.querySelector('hr');
 
-// Vérifie si l'élément TopLine existe pour éviter les erreurs
-if (TopLine) {
-    // Utilise insertAdjacentElement pour insérer la navbar après TopLine
-    TopLine.insertAdjacentElement('afterend', navbar);
-} else {
-    // Si TopLine n'existe pas, insère la navbar au début du body
-    document.body.insertBefore(navbar, document.body.firstChild);
+
+
+
+
+
+// Ajout de la navbar au DOM
+
+function AddNavBar() {
+    const TopLine = document.querySelector('hr');
+    if (TopLine) {
+        TopLine.insertAdjacentElement('afterend', navbar);
+        document.getElementById('blocscienceBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            showOnlyEndBA();
+        });
+        document.getElementById('bloctransversalBtn').addEventListener('click', (event) => {
+            event.preventDefault();
+            showOnlyEndBB();
+        });
+    }
+    else {
+        document.body.insertBefore(navbar, document.body.firstChild);
+    }
+    console.log("Navbar added");
 }
 
-// Fonction pour masquer tous les éléments sauf 1LPC02BA
-function showOnly1LPC02BA() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fonction pour masquer tous les éléments sauf certains
+
+function showOnlyEndBB() {
     document.querySelector(`div[id$="BA/undefined"]`).style.display = 'none';
     document.querySelector(`div[id$="BB/undefined"]`).style.display = 'contents';
 }
 
-function showOnly1LPC02BB() {
+function showOnlyEndBA() {
     document.querySelector(`div[id$="BB/undefined"]`).style.display = 'none';
     document.querySelector(`div[id$="BA/undefined"]`).style.display = 'contents';
 }
 
-// Ajoutez des écouteurs d'événements pour les boutons de la navbar
-document.getElementById('semestre1Btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    showOnly1LPC02BB();
-});
-
-document.getElementById('semestre2Btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    showOnly1LPC02BA();
-});
 
 
-// content.js
-console.log("Better Email is running");
+
+
+
+
+
+
+
+// Changement du style général de la page
+
 const style = document.createElement('style');
 style.textContent = `
 	body {
@@ -165,6 +211,15 @@ style.textContent = `
 `;
 document.head.append(style);
 
+
+
+
+
+
+
+
+
+
 // Fonction pour supprimer les éléments
 function removeElementsAndUpdateCellBox() {
     const elements = document.querySelectorAll('.User, .Preamble, .RSSStream, .IPAnnuelle, .LinksTable, .Civilite, .Picture, .UEMasters');
@@ -174,6 +229,18 @@ function removeElementsAndUpdateCellBox() {
     });
     updateCellBoxTextColor(); // Appelle la fonction pour mettre à jour la couleur du texte des CellBox
 }
+
+
+
+
+
+
+
+
+
+
+
+// Fonction pour mettre à jour la couleur du texte des CellBox en fonction de leur bg
 
 function updateCellBoxTextColor() {
     const cellBoxes = document.querySelectorAll('.CellBox');
@@ -186,6 +253,16 @@ function updateCellBoxTextColor() {
 
     });
 }
+
+
+
+
+
+
+
+
+
+
 
 // Exécutez immédiatement pour supprimer les éléments existants et la div spécifique si elle existe
 removeElementsAndUpdateCellBox();
@@ -201,9 +278,348 @@ const config = { childList: true, subtree: true };
 // Commencez à observer le document
 observer.observe(document.body, config);
 
-document.title = "BetterTomuss";
+
+
+
+
+
+
+
+
+
+
+// Ajout de la police VT323
 
 const fontLink = document.createElement('link');
 fontLink.rel = 'stylesheet';
 fontLink.href = 'https://fonts.googleapis.com/css2?family=VT323&display=swap';
 document.head.appendChild(fontLink);
+
+
+
+
+
+
+
+
+// Ajout de la fonctionnalité pour afficher uniquement les notes
+
+const BoutonNotes = document.createElement('div');
+
+const textBoutonNotes = document.createElement('span');
+textBoutonNotes.textContent = "Afficher uniquement les notes";
+textBoutonNotes.style.color = "white";
+textBoutonNotes.style.fontFamily = "VT323";
+
+const buttonBoutonNotes = document.createElement('input');
+buttonBoutonNotes.type = 'checkbox';
+buttonBoutonNotes.id = 'boutonNotesCheckbox';
+
+BoutonNotes.appendChild(textBoutonNotes);
+BoutonNotes.appendChild(buttonBoutonNotes);
+BoutonNotes.style.display = "flex";
+BoutonNotes.style.flexDirection = "row";
+BoutonNotes.style.padding = "10px";
+BoutonNotes.style.backgroundColor = "orange";
+BoutonNotes.style.borderRadius = "10px";
+BoutonNotes.style.marginTop = "20px";
+BoutonNotes.style.color = "black";
+
+
+
+
+
+// Ajout de la fonctionnalité pour enlever les messages
+
+const BoutonMessage = document.createElement('div');
+
+const textBoutonMessage = document.createElement('span');
+textBoutonMessage.textContent = "Enlever les messages";
+textBoutonMessage.style.color = "white";
+textBoutonMessage.style.fontFamily = "VT323";
+
+const buttonBoutonMessage = document.createElement('input');
+buttonBoutonMessage.type = 'checkbox';
+buttonBoutonMessage.id = 'BoutonMessageCheckbox';
+
+BoutonMessage.appendChild(textBoutonMessage);
+BoutonMessage.appendChild(buttonBoutonMessage);
+BoutonMessage.style.display = "flex";
+BoutonMessage.style.flexDirection = "row";
+BoutonMessage.style.padding = "10px";
+BoutonMessage.style.backgroundColor = "orange";
+BoutonMessage.style.borderRadius = "10px";
+BoutonMessage.style.marginTop = "20px";
+BoutonMessage.style.color = "black";
+
+
+
+
+// Afficher les cases vides
+
+const BoutonCasesVides = document.createElement('div');
+
+const textBoutonCasesVides = document.createElement('span');
+textBoutonCasesVides.textContent = "Cacher les cases vides";
+textBoutonCasesVides.style.color = "white";
+textBoutonCasesVides.style.fontFamily = "VT323";
+
+const buttonBoutonCasesVides = document.createElement('input');
+buttonBoutonCasesVides.type = 'checkbox';
+buttonBoutonCasesVides.id = 'BoutonCasesVidesCheckbox';
+
+BoutonCasesVides.appendChild(textBoutonCasesVides);
+BoutonCasesVides.appendChild(buttonBoutonCasesVides);
+BoutonCasesVides.style.display = "flex";
+BoutonCasesVides.style.flexDirection = "row";
+BoutonCasesVides.style.padding = "10px";
+BoutonCasesVides.style.backgroundColor = "orange";
+BoutonCasesVides.style.borderRadius = "10px";
+BoutonCasesVides.style.marginTop = "20px";
+BoutonCasesVides.style.color = "black";
+
+
+
+
+
+
+
+
+
+
+
+
+// Fonction pour ajouter les boutons
+
+function ajoutBoutonNotes() {
+    const displaySemesters = document.querySelector('.DisplaySemesters');
+    displaySemesters.appendChild(BoutonNotes);
+    ecouteBoutonNotesCheckbox();
+    displaySemesters.appendChild(BoutonMessage);
+    ecouteBoutonMessageCheckbox();
+    displaySemesters.appendChild(BoutonCasesVides);
+    ecouteBoutonCasesVidesCheckbox();
+}
+
+
+
+
+
+
+
+
+
+
+// Fonctions pour écouter les boutons
+
+function ecouteBoutonMessageCheckbox() {
+    document.getElementById('BoutonMessageCheckbox').addEventListener('change', function() {
+        const displayUECommentElements = document.querySelectorAll('.DisplayUEComment');
+        if (this.checked) {
+            displayUECommentElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        } else {
+            displayUECommentElements.forEach(element => {
+                element.style.display = '';
+            });
+        }
+    });
+}
+
+function ecouteBoutonNotesCheckbox() {
+    document.getElementById('boutonNotesCheckbox').addEventListener('change', function() {
+        const displayTypeNoteElements = document.querySelectorAll('.DisplayTypeText, .TypeJe_Viens , .DisplayTypeCode_Etape, .DisplayTypeCod_Cat , .DisplayTypeEnumeration, .DisplayTypeUpload , .DisplayTypeBool, .DisplayTypeDate, .boxed_boxes   ');
+        if (this.checked) {
+            displayTypeNoteElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        } else {
+            displayTypeNoteElements.forEach(element => {
+                element.style.display = '';
+            });
+        }
+    });
+}
+
+
+function ecouteBoutonCasesVidesCheckbox() {
+    document.getElementById('BoutonCasesVidesCheckbox').addEventListener('change', function() {
+        const displayTypeNoteElements = document.querySelectorAll('.is_empty');
+        if (this.checked) {
+            displayTypeNoteElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        } else {
+            displayTypeNoteElements.forEach(element => {
+                element.style.display = '';
+            });
+        }
+    });
+}
+
+
+
+
+
+
+// Créez une instance de MutationObserver
+const observer2 = new MutationObserver((mutations, obs) => {
+    const displaySemesters = document.querySelector('.DisplaySemesters');
+    if (displaySemesters) {
+        ajoutBoutonNotes(); 
+        obs.disconnect(); 
+    }
+});
+
+// Configuration de l'observateur : observe les ajouts d'enfants et les changements d'attributs
+const config2 = { childList: true, subtree: true };
+
+// Commencez à observer le document
+observer2.observe(document.body, config2);
+
+// Créez une instance de MutationObserver
+const observer3 = new MutationObserver((mutations, obs) => {
+    const displaySemesters = document.querySelector('hr');
+    if (displaySemesters) {
+        AddNavBar();
+        obs.disconnect(); 
+    }
+});
+
+// Configuration de l'observateur : observe les ajouts d'enfants et les changements d'attributs
+const config3 = { childList: true, subtree: true };
+
+// Commencez à observer le document
+observer3.observe(document.body, config3);
+
+
+
+
+
+
+
+
+
+
+
+
+// Fonction pour compter les occurrences des valeurs CellValue
+
+function countCellValueOccurrences() {
+    const cellValues = document.querySelectorAll('.DisplayTypeNote .CellValue');
+    const occurrences = {};
+
+    // Initialiser toutes les notes possibles de 0 à 20 avec un compteur à 0
+    //for (let i = 0; i >= 20; i--) {
+    //    occurrences[i] = 0;
+    //}
+
+    cellValues.forEach(cell => {
+        let value = cell.textContent || cell.innerText;
+        value = value.replace(/\u00a0/g, ' ').trim(); // Remplace &nbsp; par un espace normal et supprime les espaces blancs
+
+        // Extraction de la note et du total possible
+        const match = value.match(/(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)/);
+        if (match) {
+            let note = parseFloat(match[1]);
+            const totalPossible = parseFloat(match[2]);
+
+            // Ajustement de la note pour qu'elle soit sur 20
+            if (totalPossible !== 20) {
+                note = (note / totalPossible) * 20;
+            }
+
+            // Arrondissement de la note ajustée à l'entier le plus proche
+            const noteArrondie = Math.round(note);
+
+            occurrences[noteArrondie] = (occurrences[noteArrondie] || 0) + 1;
+        } else {
+            console.log("Format de note non reconnu : ", value);
+        }
+    });
+
+    return occurrences;
+}
+
+
+
+
+// Fonction pour afficher le tableau des occurrences dans DisplaySemesters
+
+
+function displayOccurrencesTable(occurrences) {
+    const displaySemesters = document.querySelector('.DisplaySemesters');
+    const table = document.createElement('table');
+    Object.entries(occurrences).forEach(([value, count]) => {
+        const row = table.insertRow();
+        const cellValue = row.insertCell(0);
+        const cellCount = row.insertCell(1);
+        cellValue.textContent = value;
+        cellCount.textContent = count;
+    });
+    displaySemesters.appendChild(table);
+}
+
+function displayBarChart(occurrences) {
+    const displaySemesters = document.querySelector('.DisplaySemesters');
+    const chartContainer = document.createElement('div');
+    chartContainer.style.display = 'flex';
+    chartContainer.style.flexDirection = 'column';
+    chartContainer.style.alignItems = 'flex-start';
+    chartContainer.style.gap = '0px';
+    chartContainer.style.marginTop = '20px';
+    chartContainer.style.width = '90%';
+
+    const titreGraphique = document.createElement('div');
+    titreGraphique.textContent = 'Répartition des notes';
+    titreGraphique.style.fontFamily = 'VT323';
+    titreGraphique.style.fontSize = '20px';
+    titreGraphique.style.color = 'white';
+    titreGraphique.style.marginBottom = '10px';
+    chartContainer.appendChild(titreGraphique);
+
+    const maxOccurrences = Math.max(...Object.values(occurrences));
+
+
+    Object.entries(occurrences).forEach(([value, count]) => {
+        const barreContainer = document.createElement('div');
+
+        const bar = document.createElement('div');
+        const barWidth = (count / maxOccurrences) * 100;
+        bar.style.width = `${barWidth}%`;
+        bar.style.height = '20px';
+        bar.style.backgroundColor = 'orange';
+        bar.style.margin = '0px 0';
+        bar.style.borderRadius = '0px 5px 5px 0px';
+        bar.style.textAlign = 'right';
+        bar.style.paddingRight = '5px';
+        bar.style.color = 'black';
+        bar.textContent = `${value}`;
+
+        chartContainer.appendChild(bar);
+    });
+
+    displaySemesters.appendChild(chartContainer);
+}
+
+
+
+
+
+// Utilisez MutationObserver pour détecter les changements dans le DOM
+const observer5 = new MutationObserver(mutations => {
+    const cellValuesExist = document.querySelector('.CellValue');
+    if (cellValuesExist) {
+        observer5.disconnect(); // Arrêtez d'observer une fois que les CellValue sont chargés
+        const occurrences = countCellValueOccurrences();
+        //displayOccurrencesTable(occurrences);
+        displayBarChart(occurrences);
+    }
+});
+
+// Configuration de l'observateur : observe les ajouts d'enfants et les changements d'attributs
+const config5 = { childList: true, subtree: true };
+
+// Commencez à observer le document
+observer5.observe(document.body, config5);
