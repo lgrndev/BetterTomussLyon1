@@ -33,8 +33,7 @@ Pour installer l'extension Better Tomuss :
 ## Utilisation
 
 1. Une fois installée, vous verrez l'icône Better Tomuss dans la barre d'outils de votre navigateur.
-2. Cliquez sur l'icône pour ouvrir la plateforme Tomuss avec le design amélioré.
-3. L'extension appliquera automatiquement le nouveau design lorsque vous naviguerez vers `https://tomuss.univ-lyon1.fr/S/*`.
+2. L'extension appliquera automatiquement le nouveau design lorsque vous naviguerez vers `https://tomuss.univ-lyon1.fr/S/*`.
 
 ## Développement
 
