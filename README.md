@@ -15,6 +15,11 @@ Better Tomuss est une extension Chrome qui améliore l'expérience utilisateur s
 
 ## Installation
 
+Il faut mettre ces paramètres précis dans les préferences Tomuss (avant d'installer l'extension)<br/>
+![image](https://github.com/user-attachments/assets/b16f405b-c9f4-4c3a-8bb7-55ae310aefcf)
+
+
+
 Pour installer l'extension Better Tomuss :
 
 1. Téléchargez le .zip
