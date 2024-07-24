@@ -110,16 +110,16 @@ style.textContent = `
         background-color: #27272a !important;
         color : white !important;
         cursor: default !important;
+        margin-left: 0px !important;
     }
-    #rightclip, .BodyRight {
-        background-color: #27272a !important;
-        border-radius: 10px !important;
-    
-    }
-    .GT0S0,.BodyRight {
+    .GT0S0 {
         border: 1px solid white;
     }
-    .themeP, .themeP TABLE.colored TD, .themeP, .themeA, .BodyRight, .themeP>SPAN.BodyRight, td {
+    .BodyRight {
+        height : 100vh !important;
+        background-color: #18181b !important;
+    }
+    .themeP, .themeP TABLE.colored TD, .themeP, .themeA, .themeP>SPAN.BodyRight, td {
         background-color: #27272a !important;
     
     }
@@ -141,12 +141,15 @@ style.textContent = `
         font-size: 40px !important;
     }
     th {
-        background-color: #27272a !important;
+        background-color: #18181b !important;
         color: white !important;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
     
     }
     [id^="UE-"], [id^="SP-"] {
-        border: 1px solid white !important;
+        background-color: #18181b !important;
         padding: 20px 50px !important;
         border-radius: 5px !important;
     }
@@ -155,6 +158,7 @@ style.textContent = `
     }
     .UEHeader {
         margin-bottom: 20px !important;
+        margin-left: 20px !important;
     }
     .CellBox {
         color: black;
@@ -173,6 +177,7 @@ style.textContent = `
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
+        color: white !important;
     }
     td {
         
@@ -186,12 +191,13 @@ style.textContent = `
         color: white !important;
     }
     .navbar {
-        background-color: #333;
+        background-color: #18181b;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 105%;
+        margin-top: 20px;
     }
     .navbar a {
         color: white;
@@ -221,6 +227,10 @@ style.textContent = `
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
+    }
+    hr {
+        width: 105%;
+        display : none;
     }
 `;
 document.head.append(style);
@@ -652,7 +662,7 @@ function displayBarChart(occurrences) {
     const titreGraphique = document.createElement('div');
     titreGraphique.textContent = 'Répartition des notes';
     titreGraphique.classList = 'poppins-bold';
-    titreGraphique.style.fontSize = '20px';
+    titreGraphique.style.fontSize = '13px';
     titreGraphique.style.color = 'white';
     titreGraphique.style.marginBottom = '10px';
     chartContainer.appendChild(titreGraphique);
