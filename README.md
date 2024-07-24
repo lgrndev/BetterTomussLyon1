@@ -17,17 +17,16 @@ Better Tomuss est une extension Chrome qui améliore l'expérience utilisateur s
 
 ## Installation
 
-Il faut mettre ces paramètres précis dans les préferences Tomuss (avant d'installer l'extension)<br/>
+⚠️ **Il faut mettre ces paramètres précis dans les préferences Tomuss (avant d'installer l'extension)** ⚠️<br/>
+
 ![image](https://github.com/user-attachments/assets/b16f405b-c9f4-4c3a-8bb7-55ae310aefcf)
 
 
 
-Pour installer l'extension Better Tomuss :
-
 ### Chrome
 
-1. Téléchargez le .zip
-2. Extraire le .zip
+1. Téléchargez le .zip -> [![Release](https://img.shields.io/badge/Release-Download-green?style=flat-square)](https://github.com/lgrndev/BetterTomussLyon1/releases/latest)
+2. Extraire le .zip à l'aide d'un logiciel comme Winrar -> [![WinRAR](https://img.shields.io/badge/WinRAR-Download-blue?logo=winrar&style=flat-square)](https://www.win-rar.com/download.html)
 3. Allez dans `chrome://extensions/` dans votre navigateur Chrome.
 4. Activez le "Mode développeur" en cliquant sur le bouton en haut à droite.<br />
 ![Screenshot 2024-07-22 040743](https://github.com/user-attachments/assets/3131086c-9d58-44cd-9abb-9f5a5d17cc39)
@@ -36,8 +35,8 @@ Pour installer l'extension Better Tomuss :
 
 ### Opera
 
-1. Téléchargez le .zip
-2. Extraire le .zip
+1. Téléchargez le .zip -> [![Release](https://img.shields.io/badge/Release-Download-green?style=flat-square)](https://github.com/lgrndev/BetterTomussLyon1/releases/latest)
+2. Extraire le .zip à l'aide d'un logiciel comme Winrar -> [![WinRAR](https://img.shields.io/badge/WinRAR-Download-blue?logo=winrar&style=flat-square)](https://www.win-rar.com/download.html)
 3. Allez dans `opera://extensions` dans votre navigateur Chrome.
 4. Activez le "Mode développeur" en cliquant sur le bouton en haut à droite.<br />
 ![image](https://github.com/user-attachments/assets/c50591b9-7108-47c4-9562-8fe503539235)
