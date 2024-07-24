@@ -1,4 +1,8 @@
-# Better Tomuss Extension <br/>
+
+
+
+# Better Tomuss Extension  <br/>
+[![GitHub all releases](https://img.shields.io/github/downloads/lgrndev/BetterTomussLyon1/total?style=flat-square)](https://github.com/lgrndev/BetterTomussLyon1/releases/latest) [![GitHub stars](https://img.shields.io/github/stars/lgrndev/BetterTomussLyon1?style=flat-square)](https://github.com/lgrndev/BetterTomussLyon1/stargazers)
 
 ![Screenshot 2024-07-24 031022](https://github.com/user-attachments/assets/22db084d-0b98-4666-8968-11430f6a6bba)
 
