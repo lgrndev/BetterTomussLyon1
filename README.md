@@ -24,13 +24,25 @@ Il faut mettre ces paramètres précis dans les préferences Tomuss (avant d'ins
 
 Pour installer l'extension Better Tomuss :
 
+### Chrome
+
 1. Téléchargez le .zip
-2. Allez dans `chrome://extensions/` dans votre navigateur Chrome.
-3. Activez le "Mode développeur" en cliquant sur le bouton en haut à droite.<br />
+2. Extraire le .zip
+3. Allez dans `chrome://extensions/` dans votre navigateur Chrome.
+4. Activez le "Mode développeur" en cliquant sur le bouton en haut à droite.<br />
 ![Screenshot 2024-07-22 040743](https://github.com/user-attachments/assets/3131086c-9d58-44cd-9abb-9f5a5d17cc39)
-5. Cliquez sur le bouton "Charger l’extension non empaquetée" et sélectionnez le dossier .zip que vous venez de télécharger<br />
+5. Cliquez sur le bouton "Charger l’extension non empaquetée" et sélectionnez le dossier que vous venez de d'extraire<br />
 ![Screenshot 2024-07-22 040813](https://github.com/user-attachments/assets/ce8ea9f6-2cd7-4bcd-9541-25cf96237cac)
 
+### Opera
+
+1. Téléchargez le .zip
+2. Extraire le .zip
+3. Allez dans `opera://extensions` dans votre navigateur Chrome.
+4. Activez le "Mode développeur" en cliquant sur le bouton en haut à droite.<br />
+![image](https://github.com/user-attachments/assets/c50591b9-7108-47c4-9562-8fe503539235)
+5. Cliquez sur le bouton "Charger l’extension non empaquetée" et sélectionnez le dossier que vous venez de d'extraire<br />
+![image](https://github.com/user-attachments/assets/f18e5762-1fb7-4e62-8dd5-ced66926ea51)
 
 ## Utilisation
 
@@ -48,7 +60,7 @@ Si vous souhaitez contribuer ou modifier l'extension, suivez ces étapes :
 2. Ouvrez le dépôt dans votre éditeur de code préféré.
 
 3. Apportez vos modifications au code.
-4. Rechargez l'extension dans Chrome en allant dans `chrome://extensions/`, en activant le "Mode développeur" et en cliquant sur "Recharger" sous l'extension Better Tomuss.
+4. Rechargez l'extension dans Chrome en allant dans `chrome://extensions/` ou `opera://extensions`, en activant le "Mode développeur" et en cliquant sur "Recharger" sous l'extension Better Tomuss.
 
 ## Contribuer
 
