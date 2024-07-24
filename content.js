@@ -26,7 +26,7 @@ navbar.innerHTML = `
 
 
 
-// Dedicace
+// Dedi
 
 const dedi = document.createElement('div');
 dedi.innerHTML = `
@@ -36,6 +36,7 @@ dedi.style.color = "orange";
 dedi.style.position = "absolute";
 dedi.style.top = '10px';
 dedi.style.left = '10px';
+dedi.style.fontFamily = "VT323";
 document.body.appendChild(dedi);
 
 
@@ -134,8 +135,10 @@ style.textContent = `
         justify-content: center !important;
         padding-top: 20px !important;
         align-items: center !important;
-        font-family: 'VT323', monospace;
-        font-size: 50px !important;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 40px !important;
     }
     th {
         background-color: #27272a !important;
@@ -148,7 +151,7 @@ style.textContent = `
         border-radius: 5px !important;
     }
     [name^="UE-"], [name^="SP-"] {
-        font-size: 20px !important;
+        font-size: 13px !important;
     }
     .UEHeader {
         margin-bottom: 20px !important;
@@ -167,12 +170,16 @@ style.textContent = `
         background-color: #27272a !important;
     }
     .UETitle {
-        font-family: 'VT323', monospace;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
     }
     td {
         
-        font-family: 'VT323', monospace !important;
-        font-size: 20px !important;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 13px !important;
     }
     .Cell {
         background-color: #27272a !important;
@@ -191,9 +198,11 @@ style.textContent = `
         text-align: center;
         padding: 14px 20px;
         text-decoration: none;
-        font-family: 'VT323', monospace;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
         transition: background-color 0.3s ease, color 0.3s ease;
-        font-size: 20px;
+        font-size: 13px;
     }
     .navbar a:hover {
         background-color: hsl( 0 , 0% , 30% );
@@ -207,6 +216,11 @@ style.textContent = `
     }
     .Semesters {
         padding: 10px !important;    
+    }
+    .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
     }
 `;
 document.head.append(style);
@@ -288,12 +302,19 @@ observer.observe(document.body, config);
 
 
 
-// Ajout de la police VT323
+// Ajout de la police poppins-bold
 
 const fontLink = document.createElement('link');
 fontLink.rel = 'stylesheet';
-fontLink.href = 'https://fonts.googleapis.com/css2?family=VT323&display=swap';
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
 document.head.appendChild(fontLink);
+
+// Ajout de la police VT323
+
+const fontLink2 = document.createElement('link');
+fontLink2.rel = 'stylesheet';
+fontLink2.href = 'https://fonts.googleapis.com/css2?family=VT323&display=swap';
+document.head.appendChild(fontLink2);
 
 
 
@@ -309,7 +330,8 @@ const BoutonNotes = document.createElement('div');
 const textBoutonNotes = document.createElement('span');
 textBoutonNotes.textContent = "Afficher uniquement les notes";
 textBoutonNotes.style.color = "white";
-textBoutonNotes.style.fontFamily = "VT323";
+textBoutonNotes.classList = "poppins-bold";
+textBoutonNotes.style.fontSize = "12px";
 
 const buttonBoutonNotes = document.createElement('input');
 buttonBoutonNotes.type = 'checkbox';
@@ -336,7 +358,8 @@ const BoutonMessage = document.createElement('div');
 const textBoutonMessage = document.createElement('span');
 textBoutonMessage.textContent = "Enlever les messages";
 textBoutonMessage.style.color = "white";
-textBoutonMessage.style.fontFamily = "VT323";
+textBoutonMessage.classList = "poppins-bold";
+textBoutonMessage.style.fontSize = "12px";
 
 const buttonBoutonMessage = document.createElement('input');
 buttonBoutonMessage.type = 'checkbox';
@@ -362,7 +385,8 @@ const BoutonCasesVides = document.createElement('div');
 const textBoutonCasesVides = document.createElement('span');
 textBoutonCasesVides.textContent = "Cacher les cases vides";
 textBoutonCasesVides.style.color = "white";
-textBoutonCasesVides.style.fontFamily = "VT323";
+textBoutonCasesVides.classList = "poppins-bold";
+textBoutonCasesVides.style.fontSize = "12px";
 
 const buttonBoutonCasesVides = document.createElement('input');
 buttonBoutonCasesVides.type = 'checkbox';
@@ -399,6 +423,7 @@ function ajoutBoutonNotes() {
     ecouteBoutonMessageCheckbox();
     displaySemesters.appendChild(BoutonCasesVides);
     ecouteBoutonCasesVidesCheckbox();
+    restaurerEtats();
 }
 
 
@@ -424,6 +449,7 @@ function ecouteBoutonMessageCheckbox() {
                 element.style.display = '';
             });
         }
+        sauvegarderEtat('cacherMessages', this.checked);
     });
 }
 
@@ -439,6 +465,7 @@ function ecouteBoutonNotesCheckbox() {
                 element.style.display = '';
             });
         }
+        sauvegarderEtat('cacherNotes', this.checked);
     });
 }
 
@@ -455,8 +482,59 @@ function ecouteBoutonCasesVidesCheckbox() {
                 element.style.display = '';
             });
         }
+        sauvegarderEtat('cacherCasesVides', this.checked);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function sauvegarderEtat(cle, valeur) {
+    localStorage.setItem(cle, valeur);
+}
+
+function restaurerEtats() {
+    const etats = {
+        cacherCasesVides: localStorage.getItem('cacherCasesVides') === 'true',
+        cacherMessages: localStorage.getItem('cacherMessages') === 'true',
+        cacherNotes: localStorage.getItem('cacherNotes') === 'true'
+    };
+
+    buttonBoutonCasesVides.checked = etats.cacherCasesVides;
+    buttonBoutonMessage.checked = etats.cacherMessages;
+    buttonBoutonNotes.checked = etats.cacherNotes;
+
+    // Appliquer les états restaurés
+    const displayTypeNoteElements = document.querySelectorAll('.is_empty');
+    displayTypeNoteElements.forEach(element => {
+        element.style.display = etats.cacherCasesVides ? 'none' : '';
+    });
+
+    const displayUECommentElements = document.querySelectorAll('.DisplayUEComment');
+    displayUECommentElements.forEach(element => {
+        element.style.display = etats.cacherMessages ? 'none' : '';
+    });
+
+    const displayTypeNoteElementsAll = document.querySelectorAll('.DisplayTypeText, .TypeJe_Viens , .DisplayTypeCode_Etape, .DisplayTypeCod_Cat , .DisplayTypeEnumeration, .DisplayTypeUpload , .DisplayTypeBool, .DisplayTypeDate, .boxed_boxes');
+    displayTypeNoteElementsAll.forEach(element => {
+        element.style.display = etats.cacherNotes ? 'none' : '';
+    });
+}
+
+
+
+
+
+
 
 
 
@@ -573,7 +651,7 @@ function displayBarChart(occurrences) {
 
     const titreGraphique = document.createElement('div');
     titreGraphique.textContent = 'Répartition des notes';
-    titreGraphique.style.fontFamily = 'VT323';
+    titreGraphique.classList = 'poppins-bold';
     titreGraphique.style.fontSize = '20px';
     titreGraphique.style.color = 'white';
     titreGraphique.style.marginBottom = '10px';
