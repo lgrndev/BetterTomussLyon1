@@ -3,6 +3,8 @@
 
 # Better Tomuss Extension  <br/>
 
+![Screenshot 2024-07-24 031022](https://github.com/user-attachments/assets/22db084d-0b98-4666-8968-11430f6a6bba)
+
 
 
 Better Tomuss est une extension Chrome qui améliore l'expérience utilisateur sur la plateforme Tomuss de l'Université Lyon1 en offrant un design et une convivialité améliorés.
