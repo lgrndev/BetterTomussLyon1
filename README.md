@@ -1,7 +1,17 @@
 
 
 
-# Better Tomuss Extension  <br/>
+<div align="center">
+  <h1 align="center">BetterTomuss Extension</h1>
+
+### Modifier l'aspect visuel et rajouter des fonctionnalités à Tomuss
+
+![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Github stars](https://img.shields.io/github/stars/lgrndev/Bettertomusslyon1?style=for-the-badge)
+</div>
+
+<hr> </hr>
+
 
 ![Screenshot 2024-07-24 031022](https://github.com/user-attachments/assets/22db084d-0b98-4666-8968-11430f6a6bba)
 
